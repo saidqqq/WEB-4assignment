@@ -1,8 +1,6 @@
+
 * {
     box-sizing: border-box;
-}
-html {
-    scroll-behavior: smooth;
 }
 body {
     margin: 0;
@@ -199,18 +197,18 @@ textarea.form-control {
 }
 
 /*valid*/
-.validated-form .form-control:required:not(:placeholder-shown):valid {
+.validated-form .form-control:not(#confirmPassword):required:not(:placeholder-shown):valid {
     border-color: #198754;
 }
-.validated-form .form-control:required:not(:placeholder-shown):valid ~ .valid-feedback {
+.validated-form .form-control:not(#confirmPassword):required:not(:placeholder-shown):valid ~ .valid-feedback {
     display: block;
 }
 
 /*invalid*/
-.validated-form .form-control:user-invalid {
+.validated-form .form-control:not(#confirmPassword):user-invalid {
     border-color: #dc3545;
 }
-.validated-form .form-control:user-invalid ~ .invalid-feedback {
+.validated-form .form-control:not(#confirmPassword):user-invalid ~ .invalid-feedback {
     display: block;
 }
 
@@ -242,6 +240,31 @@ textarea.form-control {
 }
 .validated-form .is-invalid ~ .invalid-feedback {
     display: block;
+}
+
+/*password check*/
+.validated-form #confirmPassword.is-invalid {
+    border-color: #dc3545;
+}
+
+.validated-form #confirmPassword.is-invalid ~ .valid-feedback {
+    display: none;
+}
+
+.validated-form #confirmPassword.is-invalid ~ .invalid-feedback {
+    display: block;
+}
+
+.validated-form #confirmPassword.is-valid {
+    border-color: #198754;
+}
+
+.validated-form #confirmPassword.is-valid ~ .valid-feedback {
+    display: block;
+}
+
+.validated-form #confirmPassword.is-valid ~ .invalid-feedback {
+    display: none;
 }
 
 /*radio+checkbox*/
@@ -357,7 +380,7 @@ textarea.form-control {
     .s-heading h2 {
         font-size: 29px;
     }
-    
+
     .form-card {
         padding: 25px;
     }
